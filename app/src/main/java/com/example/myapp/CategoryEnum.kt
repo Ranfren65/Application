@@ -1,5 +1,8 @@
 package com.example.myapp
 
+import android.annotation.SuppressLint
+import android.widget.Button
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
@@ -15,8 +18,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ListItemDefaults.contentColor
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -44,6 +50,9 @@ enum class CategoryEnum(
 
     @Composable
      fun CreateCategory(categoryEnum: CategoryEnum){
+        val color = remember{ mutableStateOf(Color.Transparent) }
+        val border_color=remember{ mutableStateOf(Color.White) }
+        val alpha_value= remember{ mutableStateOf(0.7f) }
 
 
         Column(
@@ -54,7 +63,7 @@ enum class CategoryEnum(
                 .clickable {
 
                 }
-                .alpha(alpha = 0.7f),
+                .alpha(alpha = alpha_value.value),
 
             horizontalAlignment = Alignment.CenterHorizontally
         ){
@@ -75,14 +84,21 @@ enum class CategoryEnum(
 
 
             Button(onClick = {
+                color.value= Color.Blue
+                border_color.value= color.value
+                alpha_value.value=1f
+
+
 
             },
                 modifier= Modifier
                     .fillMaxWidth(0.74f)
                     .padding(vertical = 10.dp),
-                border = BorderStroke(1.dp, Color.White),
+                border = BorderStroke(1.dp, border_color.value),
                 shape = RoundedCornerShape(50),
-                colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)
+
+                colors = ButtonDefaults.buttonColors(color.value)
+
             ) {
                 Text(
                     text = stringResource(id = btn_text),
