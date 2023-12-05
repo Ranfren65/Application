@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">My App</string>
+
+    <string name="volunteer_description">Organize volunteer activities. For example,
+cleaning the beach from garbage&#8230; Indicate the
+start date and the required number of people</string>
+    <string name="from_hand_to_hand_description">Give the item from hand to hand.
+        In the chat you can discuss the exact time of
+the meeting</string>
+
+    <string name="free_stuff_on_the_street_description">You placed or saw an interesting thing on
+the street that they might pick up right now</string>
+
+
+
+    <string name="volunteer_btn_text">
+        Volunteer Activities
+    </string>
+    <string name="from_hand_to_hand_btn_text">
+        From hand to hand
+    </string>
+    <string name="free_stuff_btn_text">
+        Free stuff on the street
+    </string>
+
+
+
+</resources>
